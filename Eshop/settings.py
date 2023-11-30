@@ -85,6 +85,23 @@ DATABASES = {
         'PORT': '5432',  # Default PostgreSQL port
     }
 }
+# AWS S3 Settings
+# AWS S3 Settings
+AWS_ACCESS_KEY_ID = 'AKIAU4CF6XSMVZITNIEL'
+AWS_SECRET_ACCESS_KEY = 'BzJTFAaRfJ7NmCxcvZvXTVjSKIWrslUDjyKSjfCe'
+AWS_STORAGE_BUCKET_NAME = 'cpp-1'
+AWS_S3_REGION_NAME = 'us-east-1'  # Update to your bucket's region
+AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+# Static files (CSS, JavaScript, Images)
+STATIC_URL = '/static/'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+# Media files
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/media/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+
+
 
 
 # Password validation
@@ -120,9 +137,9 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+#Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
-STATIC_URL = "/static/"
-MEDIA_URL = "/image/download/"
+#STATIC_URL = "/static/"
+#MEDIA_URL = "/image/download/"
 MEDIA_ROOT = BASE_DIR
